@@ -1,15 +1,16 @@
-from jenkins/jenkins:2.282-alpine
+from jenkins/jenkins:2.385-alpine
 USER root
 # Pipeline
-RUN /usr/local/bin/install-plugins.sh workflow-aggregator && \
-    /usr/local/bin/install-plugins.sh github && \
-    /usr/local/bin/install-plugins.sh ws-cleanup && \
-    /usr/local/bin/install-plugins.sh greenballs && \
-    /usr/local/bin/install-plugins.sh simple-theme-plugin && \
-    /usr/local/bin/install-plugins.sh kubernetes && \
-    /usr/local/bin/install-plugins.sh docker-workflow && \
-    /usr/local/bin/install-plugins.sh kubernetes-cli && \
-    /usr/local/bin/install-plugins.sh github-branch-source
+#RUN jenkins-plugin-cli --plugins "blueocean:1.25.6 docker-workflow:1.29"
+#RUN /usr/local/bin/jenkins-plugin-cli workflow-aggregator && \
+#    /usr/local/bin/jenkins-plugin-cli github && \
+#    /usr/local/bin/jenkins-plugin-cli ws-cleanup && \
+#    /usr/local/bin/jenkins-plugin-cli greenballs && \
+#    /usr/local/bin/jenkins-plugin-cli simple-theme-plugin && \
+#    /usr/local/bin/jenkins-plugin-cli kubernetes && \
+#    /usr/local/bin/jenkins-plugin-cli docker-workflow && \
+#    /usr/local/bin/jenkins-plugin-cli kubernetes-cli && \
+#    /usr/local/bin/jenkins-plugin-cli github-branch-source
 
 # install Maven, Java, Docker, AWS
 RUN apk add --no-cache maven \
